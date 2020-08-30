@@ -7,9 +7,11 @@
 //
 
 import SwiftUI
+import SocketIO
 
 struct TabView: View {
     
+    let manager = SocketManager(socketURL: URL(string: "http://localhost:8900")!, config: [.log(true), .compress])
     @State var index = 0
     @State var offset: CGFloat = UIScreen.main.bounds.width
     var width = UIScreen.main.bounds.width
@@ -24,8 +26,8 @@ struct TabView: View {
                 GeometryReader{g in
                     HStack(spacing: 0){
                         Home().frame(width: g.frame(in: .global).width)
-                        Camera().frame(width: g.frame(in: .global).width)
-                        Interactions().frame(width: g.frame(in: .global).width)
+                        Contacts().frame(width: g.frame(in: .global).width)
+                        Settings().frame(width: g.frame(in: .global).width)
                     }.offset(x: self.offset)
                     .highPriorityGesture(DragGesture()
                         .onEnded({(value) in
@@ -83,7 +85,7 @@ struct AppBar: View {
                 self.index = 1;
                 self.offset = 0
             }){
-                Image(systemName: "camera.fill")
+                Image(systemName: "person.fill")
                     .resizable()
                     .frame(width: 25, height: 25)
                     .foregroundColor(self.index == 1 ? Color.white : Color.white.opacity(0.5))

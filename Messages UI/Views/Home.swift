@@ -7,9 +7,13 @@
 //
 
 import SwiftUI
+import SocketIO
 
 struct Home: View {
     @State var query = "";
+    let manager = SocketManager(socketURL: URL(string: "http://localhost:8900")!, config: [.log(true), .compress])
+    @State var socket:SocketIOClient!
+    @State var message: String?
     
     var body: some View {
         VStack(){
@@ -38,8 +42,22 @@ struct Home: View {
             .background(Color.white)
             .clipShape(TopShape())
             .offset(y: -25)
+        }.onAppear{
+            self.socket = self.manager.defaultSocket
+            self.socket.connect()
+            self.addHandlers()
         }
     }
+    
+    func addHandlers(){
+        socket.on("message"){[self] data, ack in
+            if let message = data[0] as? String {
+                self.query = message
+                print(message)
+            }
+        }
+    }
+    
 }
 
 struct cellView : View {

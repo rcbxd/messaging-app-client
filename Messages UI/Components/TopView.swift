@@ -19,7 +19,7 @@ struct TopView: View {
                 Spacer();
                 
                 Button(action: {}){
-                    Image(systemName: text == "Interactions" ? "gear" : "person.circle")
+                    Image(systemName: text == "Interactions" ? "gear" : "person.badge.plus.fill")
                     .resizable()
                     .frame(width: 40, height: 40)
                     .foregroundColor(Color.black.opacity(0.6));

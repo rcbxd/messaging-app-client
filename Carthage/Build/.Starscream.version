@@ -1,0 +1,19 @@
+{
+  "commitish" : "3.1.1",
+  "Mac" : [
+    {
+      "hash" : "2dfb7d5e7c10a5fff2fa89ebcc4db86994f58a9ab93d44e87f64387f68f53798",
+      "name" : "Starscream",
+      "linking" : "dynamic",
+      "swiftToolchainVersion" : "5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+    }
+  ],
+  "iOS" : [
+    {
+      "hash" : "cd86da7dfa9e9ad122049a0ffc2fed381719ab8a729a13ce628feba3025cf4a3",
+      "name" : "Starscream",
+      "linking" : "dynamic",
+      "swiftToolchainVersion" : "5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+    }
+  ]
+}
